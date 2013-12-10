@@ -1,0 +1,16 @@
+{
+  "name": "anonymg.com",
+  "version": "0.0.1",
+  "description": "anonymg.com",
+  "dependencies": {
+    "mongojs": "latest",
+    "socket.io": "latest",
+    "express": "latest",
+    "jade": "latest",
+    "connect": "latest",
+    "cookie": "latest",
+    "passport": "latest",
+    "passport-google": "latest"
+  },
+  "author": "Akash Krishnan"
+}
