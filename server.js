@@ -24,8 +24,8 @@ app.use(app.router);
 
 require('./routes/passport.js')(passport);
 
-app.get('/auth/google', passport.authenticate('google'));
-app.get('/auth/google/callback', passport.authenticate('google', { successRedirect: '/', failureRedirect: '/' }));
+app.get('/auth/facebook', passport.authenticate('facebook'));
+app.get('/auth/facebook/callback', passport.authenticate('facebook', { successRedirect: '/', failureRedirect: '/' }));
 app.post('/logout', routes.logout);
 app.get('/partials/:name', routes.partials);
 app.get('*', routes.index);
@@ -35,5 +35,5 @@ io.set('authorization', require('./socket/passport.js')(cookieParser, sessionSto
 io.sockets.on('connection', require('./socket')(io.sockets));
 
 server.listen(app.get('port'), function () {
-  console.log('LearnSpice server listening on port ' + app.get('port') + '.');
+  console.log('Anonymg server listening on port ' + app.get('port') + '.');
 });

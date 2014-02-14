@@ -1,6 +1,6 @@
 var mongojs = require('mongojs');
 var ObjectId = mongojs.ObjectId;
-var db = mongojs('127.0.0.1/anonymg.com', ['users']);
+var db = mongojs('127.0.0.1/anonymg', ['users']);
 
 var transformId = function (query) {
   if (query._id) {

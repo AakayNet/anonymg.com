@@ -1,17 +1,17 @@
 var config = require('../config.js');
 var UserModel = require('../models/user.js');
-var GoogleStrategy = require('passport-google').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
 
 module.exports = function (passport) {
-  passport.use(new GoogleStrategy({
-    realm: 'http://' + config.web.domain + '/',
-    returnURL: 'http://' + config.web.domain + '/auth/google/callback'
-  }, function (id, profile, done) {
+  passport.use(new FacebookStrategy({
+    clientID: config.auth.facebook.key,
+    clientSecret: config.auth.facebook.secret,
+    callbackURL: 'http://' + config.web.domain + '/auth/facebook/callback'
+  }, function (accessToken, refreshToken, profile, done) {
     var userdata = {
-      id: id,
-      provider: 'google',
-      name: profile.displayName,
-      email: profile.emails[0].value
+      id: profile.id,
+      provider: 'facebook',
+      name: profile.displayName
     };
     UserModel.update(userdata, function (err, user) {
       done(null, user[0]);

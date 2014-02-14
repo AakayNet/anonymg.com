@@ -10,7 +10,7 @@
     "connect": "latest",
     "cookie": "latest",
     "passport": "latest",
-    "passport-google": "latest"
+    "passport-facebook": "latest"
   },
   "author": "Akash Krishnan"
 }
